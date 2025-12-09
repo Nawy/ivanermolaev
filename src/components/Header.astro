@@ -1,0 +1,34 @@
+---
+
+---
+
+<!-- HEADER SECTION -->
+<header
+    class="flex flex-col md:flex-row justify-between items-stretch b-border-b sticky top-0 z-50 bg-paper"
+>
+    <!-- Name Block -->
+    <div
+        class="p-4 md:p-8 flex-grow md:b-border-r bg-paper flex items-center justify-between"
+    >
+        <a
+            href="/"
+            class="font-germania text-4xl md:text-5xl text-dark tracking-wide hover:text-bauhaus transition-colors"
+        >
+            Ivan Ermolaev
+        </a>
+        <!-- Mobile Menu Button (Visual Only for this demo, could be hydrated with Svelte if needed) -->
+        <button class="md:hidden text-2xl" aria-label="Menu">☰</button>
+    </div>
+
+    <!-- Navigation Block -->
+    <nav class="flex flex-col md:w-64 bg-offwhite">
+        <a
+            href="/blog"
+            class="h-full flex items-center justify-center text-lg font-bold uppercase tracking-widest hover:bg-bauhaus hover:text-white transition-colors py-4 md:py-0 b-border-t md:b-border-t-0 group"
+        >
+            <span class="group-hover:translate-x-1 transition-transform"
+                >All Posts</span
+            >
+        </a>
+    </nav>
+</header>

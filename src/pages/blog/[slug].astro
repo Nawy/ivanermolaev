@@ -1,0 +1,166 @@
+---
+import Layout from "../../layouts/Layout.astro";
+
+export function getStaticPaths() {
+    return [
+        { params: { slug: "coder-to-builder-shift" } },
+        { params: { slug: "securing-payment-gateways" } },
+        { params: { slug: "from-react-to-unity" } },
+        { params: { slug: "tailwind-vs-css-modules" } },
+    ];
+}
+
+const { slug } = Astro.params;
+
+// Mock data content (In a real app, fetch from markdown or CMS)
+const postMap = {
+    "coder-to-builder-shift": {
+        title: "The Coder to Builder Mindset Shift",
+        date: "October 14, 2025",
+        category: "Entrepreneurship",
+        readTime: "5 Min",
+        content: `
+            <p class="first-letter:text-6xl first-letter:font-germania first-letter:float-left first-letter:mr-3 first-letter:mt-[-10px] first-letter:text-bauhaus">
+                For years, I measured my worth by the complexity of the problems I could solve in code. Could I
+                shave 20ms off that query? Could I refactor this component to be perfectly generic?
+            </p>
+            <p>That mindset made me a great senior engineer. But it almost killed my ability to build a business.</p>
+            <h3>The "Perfect Code" Trap</h3>
+            <p>Engineers are trained to avoid technical debt. Builders, however, need to embrace "product debt." Product debt is the feature you didn't build because you weren't sure if users wanted it yet.</p>
+            <p>When I started my first SaaS project, I spent three weeks setting up a Kubernetes cluster, configuring a CI/CD pipeline that could handle Netflix-scale traffic, and writing 100% test coverage for a login form.</p>
+            <p><strong>Number of users acquired: Zero.</strong></p>
+            <div class="my-8 p-6 bg-offwhite border-l-4 border-black italic">"Your customers do not care about your code coverage. They care if your product solves their pain."</div>
+            <h3>Understanding the "Why"</h3>
+            <p>The shift from Coder to Builder requires you to stop asking "How do I build this?" and start asking "Why should this exist?".</p>
+            <ul>
+                <li><strong>Coder:</strong> "I need to use Next.js 14 because server actions are the future."</li>
+                <li><strong>Builder:</strong> "I need to use whatever tech stack lets me ship this feature by Friday."</li>
+            </ul>
+        `,
+    },
+    "securing-payment-gateways": {
+        title: "Securing Payment Gateways: A Deep Dive",
+        date: "December 08, 2025",
+        category: "Fintech",
+        readTime: "8 Min",
+        content:
+            "<p>Exploring the architectural patterns required to build a zero-trust environment for high-volume financial transactions...</p>",
+    },
+    "from-react-to-unity": {
+        title: "From React to Unity: My Journey",
+        date: "November 22, 2025",
+        category: "Game Dev",
+        readTime: "6 Min",
+        content:
+            "<p>How concepts in modern frontend development translate to game object lifecycles...</p>",
+    },
+    "tailwind-vs-css-modules": {
+        title: "Tailwind vs CSS Modules",
+        date: "September 01, 2025",
+        category: "Frontend",
+        readTime: "4 Min",
+        content:
+            "<p>A controversial take on utility-first CSS in large scale applications...</p>",
+    },
+};
+
+const post = postMap[slug] || postMap["coder-to-builder-shift"];
+---
+
+<Layout title={`${post.title} | Ivan Ermolaev`}>
+    <!-- Post Header -->
+    <div class="grid grid-cols-1 md:grid-cols-12 b-border-b">
+        <div class="md:col-span-9 p-8 md:p-12 md:b-border-r bg-white">
+            <div class="flex items-center gap-4 mb-6">
+                <span
+                    class="bg-bauhaus text-white px-3 py-1 text-xs font-bold uppercase tracking-wider"
+                    >{post.category}</span
+                >
+                <span class="font-mono text-sm text-gray-500">{post.date}</span>
+            </div>
+            <h1
+                class="font-germania text-4xl md:text-5xl lg:text-6xl text-dark leading-tight mb-6"
+            >
+                {post.title}
+            </h1>
+            <p class="text-xl text-gray-600 font-light leading-relaxed">
+                Why writing clean code isn't enough, and how to start thinking
+                about product market fit and user retention.
+            </p>
+        </div>
+        <!-- Sidebar metadata -->
+        <div
+            class="md:col-span-3 bg-offwhite p-8 flex flex-col justify-center space-y-6"
+        >
+            <div>
+                <p
+                    class="text-xs font-bold uppercase tracking-widest text-gray-500 mb-1"
+                >
+                    Reading Time
+                </p>
+                <p class="text-xl font-bold">{post.readTime}</p>
+            </div>
+            <div>
+                <p
+                    class="text-xs font-bold uppercase tracking-widest text-gray-500 mb-1"
+                >
+                    Share
+                </p>
+                <div class="flex gap-2">
+                    <button
+                        class="w-8 h-8 border border-black hover:bg-bauhaus hover:border-bauhaus hover:text-white flex items-center justify-center"
+                        >X</button
+                    >
+                    <button
+                        class="w-8 h-8 border border-black hover:bg-bauhaus hover:border-bauhaus hover:text-white flex items-center justify-center"
+                        >L</button
+                    >
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Post Content -->
+    <article class="grid grid-cols-1 md:grid-cols-12">
+        <!-- Sidebar spacer -->
+        <div class="hidden md:block md:col-span-2 b-border-r bg-offwhite"></div>
+
+        <!-- Main Text -->
+        <div
+            class="md:col-span-8 p-8 md:p-16 bg-white prose max-w-none text-lg text-dark"
+        >
+            <Fragment set:html={post.content} />
+        </div>
+
+        <!-- Right sidebar spacer -->
+        <div class="hidden md:block md:col-span-2 bg-offwhite b-border-l"></div>
+    </article>
+
+    <!-- Next/Prev Navigation -->
+    <div class="grid grid-cols-2 b-border-t">
+        <a
+            href="#"
+            class="p-8 border-r-2 border-black hover:bg-black hover:text-white transition-colors group text-right md:text-left flex flex-col justify-center"
+        >
+            <span class="text-xs uppercase tracking-widest opacity-60 mb-2"
+                >Previous</span
+            >
+            <span
+                class="font-bold text-lg md:text-xl group-hover:translate-x-1 transition-transform"
+                >Prev Post</span
+            >
+        </a>
+        <a
+            href="#"
+            class="p-8 hover:bg-bauhaus hover:text-white transition-colors group text-right flex flex-col justify-center"
+        >
+            <span class="text-xs uppercase tracking-widest opacity-60 mb-2"
+                >Next</span
+            >
+            <span
+                class="font-bold text-lg md:text-xl group-hover:-translate-x-1 transition-transform"
+                >Next Post</span
+            >
+        </a>
+    </div>
+</Layout>

@@ -1,0 +1,109 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bauhaus: #e65819;
+  --color-dark: #1a1a1a;
+  --color-offwhite: #f4f4f0;
+  --color-paper: #ffffff;
+
+  --font-germania: "Germania One", cursive;
+  --font-grotesk: "Space Grotesk", sans-serif;
+
+  --spacing-128: 32rem;
+}
+
+/* Bauhaus Utilities & Global Styles */
+body {
+    background-color: var(--color-offwhite);
+    color: var(--color-dark);
+    /* Dot pattern background for texture */
+    background-image: radial-gradient(var(--color-dark) 1px, transparent 1px);
+    background-size: 20px 20px;
+}
+
+/* The Grid Lines - Essential for Bauhaus look */
+.b-border {
+    border: 2px solid var(--color-dark);
+}
+
+.b-border-r {
+    border-right: 2px solid var(--color-dark);
+}
+
+.b-border-b {
+    border-bottom: 2px solid var(--color-dark);
+}
+
+.b-border-l {
+    border-left: 2px solid var(--color-dark);
+}
+
+.b-border-t {
+    border-top: 2px solid var(--color-dark);
+}
+
+/* Typography tweaks */
+h1, h2, h3, h4 {
+    letter-spacing: -0.02em;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--color-offwhite);
+    border-left: 2px solid var(--color-dark);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--color-bauhaus);
+    border: 2px solid var(--color-dark);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--color-dark);
+}
+
+/* View transition animations (legacy support, might replace with View Transitions API) */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Prose Styling */
+.prose p {
+    margin-bottom: 1.5rem;
+    line-height: 1.7;
+}
+
+.prose h3 {
+    font-family: var(--font-grotesk);
+    font-weight: 700;
+    font-size: 1.5rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    border-left: 4px solid var(--color-bauhaus);
+    padding-left: 1rem;
+}
+
+.prose ul {
+    list-style-type: square;
+    padding-left: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.prose li {
+    margin-bottom: 0.5rem;
+}
+
+.prose strong {
+    color: var(--color-bauhaus);
+}

@@ -1,0 +1,111 @@
+---
+import Layout from "../../layouts/Layout.astro";
+
+const posts = [
+    {
+        date: "2025-12-08",
+        title: "Securing Payment Gateways: A Deep Dive",
+        excerpt:
+            "Exploring the architectural patterns required to build a zero-trust environment for high-volume financial transactions. Why idempotency keys are your best friend.",
+        category: "Fintech",
+        slug: "securing-payment-gateways",
+    },
+    {
+        date: "2025-11-22",
+        title: "From React to Unity: My Journey",
+        excerpt:
+            "How concepts in modern frontend development translate to game object lifecycles. Component-Entity-Systems explained for Web Devs.",
+        category: "Game Dev",
+        slug: "from-react-to-unity",
+    },
+    {
+        date: "2025-10-14",
+        title: "The Coder to Builder Mindset Shift",
+        excerpt:
+            "Why writing clean code isn't enough, and how to start thinking about product market fit. Moving from 'how' to 'why'.",
+        category: "Business",
+        slug: "coder-to-builder-shift",
+    },
+    {
+        date: "2025-09-01",
+        title: "Tailwind vs CSS Modules",
+        excerpt:
+            "A controversial take on utility-first CSS in large scale applications. Maintainability over cleanliness.",
+        category: "Frontend",
+        slug: "tailwind-vs-css-modules",
+    },
+];
+---
+
+<Layout title="The Archive | Ivan Ermolaev">
+    <div class="bg-bauhaus text-white p-8 md:p-12 b-border-b">
+        <h2 class="font-germania text-5xl md:text-6xl mb-2">The Archive</h2>
+        <p class="font-mono text-sm opacity-90 max-w-xl">
+            Thoughts on software architecture, building products, and the
+            occasional game dev sprint.
+        </p>
+    </div>
+
+    <!-- Blog Grid -->
+    <div class="grid grid-cols-1">
+        <!-- Blog List Header -->
+        <div
+            class="hidden md:grid grid-cols-12 b-border-b bg-offwhite text-xs font-bold uppercase tracking-widest p-3"
+        >
+            <div class="col-span-2">Date</div>
+            <div class="col-span-8">Title / Excerpt</div>
+            <div class="col-span-2 text-right">Category</div>
+        </div>
+
+        {
+            posts.map((post) => (
+                <a
+                    href={`/blog/${post.slug}`}
+                    class="grid grid-cols-1 md:grid-cols-12 group b-border-b cursor-pointer hover:bg-white transition-colors items-stretch"
+                >
+                    <div class="md:col-span-2 p-6 md:border-r-2 md:border-black font-mono text-sm text-gray-500 group-hover:text-bauhaus">
+                        {post.date}
+                    </div>
+                    <div class="md:col-span-8 p-6 md:border-r-2 md:border-black">
+                        <h3 class="text-2xl font-bold mb-2 group-hover:text-bauhaus transition-colors">
+                            {post.title}
+                        </h3>
+                        <p class="text-gray-600 line-clamp-2">{post.excerpt}</p>
+                    </div>
+                    <div class="md:col-span-2 p-6 flex items-center md:justify-end">
+                        <span class="bg-dark text-white text-xs px-2 py-1 font-bold uppercase">
+                            {post.category}
+                        </span>
+                    </div>
+                </a>
+            ))
+        }
+    </div>
+
+    <!-- Pagination (Static for demo) -->
+    <div
+        class="flex justify-between md:justify-center items-center p-8 bg-offwhite gap-2"
+    >
+        <button
+            disabled
+            class="w-10 h-10 border-2 border-black flex items-center justify-center font-bold text-gray-400 cursor-not-allowed"
+            >←</button
+        >
+        <button
+            class="w-10 h-10 bg-bauhaus text-white border-2 border-bauhaus flex items-center justify-center font-bold shadow-[4px_4px_0px_0px_rgba(26,26,26,1)]"
+            >1</button
+        >
+        <button
+            class="w-10 h-10 border-2 border-black flex items-center justify-center font-bold hover:bg-black hover:text-white transition-colors"
+            >2</button
+        >
+        <button
+            class="w-10 h-10 border-2 border-black flex items-center justify-center font-bold hover:bg-black hover:text-white transition-colors"
+            >3</button
+        >
+        <button
+            class="w-10 h-10 border-2 border-black flex items-center justify-center font-bold hover:bg-black hover:text-white transition-colors"
+            >→</button
+        >
+    </div>
+</Layout>

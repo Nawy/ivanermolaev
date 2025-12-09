@@ -1,16 +1,84 @@
 ---
+import Layout from "../layouts/Layout.astro";
+import Hero from "../components/Hero.svelte";
 
+const posts = [
+	{
+		category: "FINTECH & SECURITY",
+		title: "Securing Payment Gateways",
+		date: "Dec 08",
+		slug: "securing-payment-gateways",
+	},
+	{
+		category: "GAME DEV",
+		title: "From React to Unity",
+		date: "Nov 22",
+		slug: "from-react-to-unity",
+	},
+	{
+		category: "MINDSET",
+		title: "Coder to Builder Shift",
+		date: "Oct 14",
+		slug: "coder-to-builder-shift",
+	},
+];
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout title="Ivan Ermolaev | Full-stack Developer">
+	<Hero client:load />
+
+	<!-- SEPARATOR -->
+	<div
+		class="h-4 bg-bauhaus w-full b-border-t b-border-b flex items-center overflow-hidden"
+	>
+		<!-- Running text effect -->
+		<div
+			class="whitespace-nowrap text-xs font-bold text-white uppercase tracking-widest px-4"
+		>
+			Backend // Frontend // Security // Fintech // Gamedev // Backend //
+			Frontend // Security // Fintech // Gamedev
+		</div>
+	</div>
+
+	<!-- HOME LATEST POSTS -->
+	<section>
+		<div
+			class="flex justify-between items-center p-4 border-b-2 border-black bg-offwhite"
+		>
+			<h2 class="font-germania text-3xl">Last Posts</h2>
+			<a
+				href="/blog"
+				class="text-sm font-bold uppercase underline decoration-bauhaus hover:text-bauhaus"
+				>View All</a
+			>
+		</div>
+
+		<div class="grid grid-cols-1 md:grid-cols-3">
+			{
+				posts.map((post, index) => (
+					<article
+						class={`group relative border-b-2 md:border-b-0 ${index !== 2 ? "md:border-r-2" : ""} border-black p-8 hover:bg-neutral-100 transition-colors cursor-pointer flex flex-col h-full`}
+					>
+						<a
+							href={`/blog/${post.slug}`}
+							class="block h-full flex flex-col"
+						>
+							<span class="text-bauhaus font-bold text-xs mb-3 block">
+								{post.category}
+							</span>
+							<h3 class="text-xl font-bold leading-tight mb-4 group-hover:text-bauhaus">
+								{post.title}
+							</h3>
+							<div class="mt-auto pt-4 border-t border-gray-300 flex justify-between">
+								<span class="font-mono text-xs">
+									{post.date}
+								</span>
+								<span class="text-bauhaus">→</span>
+							</div>
+						</a>
+					</article>
+				))
+			}
+		</div>
+	</section>
+</Layout>

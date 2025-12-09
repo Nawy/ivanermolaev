@@ -1,0 +1,35 @@
+$ astro build
+[2m22:56:49[22m [34m[content][39m Syncing content
+[2m22:56:49[22m [34m[content][39m Synced content
+[2m22:56:49[22m [34m[types][39m Generated [2m45ms[22m
+[2m22:56:49[22m [34m[build][39m output: [34m"static"[39m
+[2m22:56:49[22m [34m[build][39m mode: [34m"static"[39m
+[2m22:56:49[22m [34m[build][39m directory: [34mD:\Development\projects\ivanermolaev\dist\[39m
+[2m22:56:49[22m [34m[build][39m Collecting build info...
+[2m22:56:49[22m [34m[build][39m [32mтЬУ Completed in 68ms.[39m
+[2m22:56:49[22m [34m[build][39m Building static entrypoints...
+[33m[1m22:56:50[22m [WARN] [vite][39m [33m"isRemoteAllowed", "matchHostname", "matchPathname", "matchPort" and "matchProtocol" are imported from external module "@astrojs/internal-helpers/remote" but never used in "node_modules/astro/dist/assets/utils/remotePattern.js".[39m
+[2m22:56:50[22m [34m[vite][39m [32mтЬУ built in 1.17s[39m
+[2m22:56:50[22m [34m[build][39m [32mтЬУ Completed in 1.21s.[39m
+
+[42m[30m building client (vite) [39m[49m
+[2m22:56:50[22m [34m[vite][39m transforming...
+[2m22:56:51[22m [34m[vite][39m [32mтЬУ[39m 103 modules transformed.
+[2m22:56:51[22m [34m[vite][39m rendering chunks...
+[2m22:56:51[22m [34m[vite][39m computing gzip size...
+[2m22:56:51[22m [34m[vite][39m [2mdist/[22m[36m_astro/Hero.CExuhXK4.js           [39m[1m[2m 2.50 kB[22m[1m[22m[2m тФВ gzip: 1.12 kB[22m
+[2m22:56:51[22m [34m[vite][39m [2mdist/[22m[36m_astro/client.svelte.BCNaZg9-.js  [39m[1m[2m 6.13 kB[22m[1m[22m[2m тФВ gzip: 2.79 kB[22m
+[2m22:56:51[22m [34m[vite][39m [2mdist/[22m[36m_astro/template.DN8J4vcy.js       [39m[1m[2m16.63 kB[22m[1m[22m[2m тФВ gzip: 6.73 kB[22m
+[2m22:56:51[22m [34m[vite][39m [32mтЬУ built in 390ms[39m
+
+[42m[30m generating static routes [39m[49m
+[2m22:56:51[22m [32mтЦ╢[39m src/pages/blog/[slug].astro
+Invalid URL
+  Stack trace:
+    at new URL (node:internal/url:818:25)
+    at AstroComponentInstance.SEO [as factory] (file:///D:/Development/projects/ivanermolaev/dist/chunks/astro/server_BGKKyoig.mjs:139:12)
+    at AstroComponentInstance.render (file:///D:/Development/projects/ivanermolaev/dist/chunks/astro/server_BGKKyoig.mjs:1462:30)
+    at renderChild (file:///D:/Development/projects/ivanermolaev/dist/chunks/astro/server_BGKKyoig.mjs:1360:18)
+    at new BufferedRenderer (file:///D:/Development/projects/ivanermolaev/dist/chunks/astro/server_BGKKyoig.mjs:783:26)
+error: script "build" exited with code 1
+[2m22:56:51[22m   [34mтФЬтФА[39m [2m/blog/coder-to-builder-shift/index.html[22m

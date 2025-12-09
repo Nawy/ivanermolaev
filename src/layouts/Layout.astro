@@ -1,0 +1,32 @@
+---
+import "../styles/global.css";
+import SEO from "../components/SEO.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+
+interface Props {
+    title: string;
+    description?: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <SEO title={title} description={description} />
+    </head>
+    <body
+        class="font-grotesk min-h-screen flex flex-col justify-center items-center p-2 md:p-8 lg:p-12"
+    >
+        <!-- Main Container - Fixed width for the Grid Layout -->
+        <main
+            class="w-full max-w-6xl mx-auto b-border bg-paper shadow-[12px_12px_0px_0px_rgba(26,26,26,1)] relative z-10"
+        >
+            <Header />
+            <slot />
+            <Footer />
+        </main>
+    </body>
+</html>
